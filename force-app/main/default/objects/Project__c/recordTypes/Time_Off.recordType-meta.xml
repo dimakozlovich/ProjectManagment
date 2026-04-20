@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Time_Off</fullName>
+    <active>true</active>
+    <label>Time Off</label>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>In Progress</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+</RecordType>

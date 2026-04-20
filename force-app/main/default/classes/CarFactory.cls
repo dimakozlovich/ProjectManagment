@@ -1,0 +1,15 @@
+public class CarFactory {
+
+	public void addCars(List<String> carModels) {       
+        List<Vehicle__c> vehicles = new List<Vehicle__c>();
+
+        for (String name : carModels) {
+            Vehicle__c vehicle = new Vehicle__c();
+            vehicle.Name = name;
+            vehicle.Cost__c = Math.random();
+            vehicles.add(vehicle);
+        }
+       
+		insert vehicles;
+   }
+}
