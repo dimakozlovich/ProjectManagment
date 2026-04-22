@@ -1,6 +1,9 @@
 public class CarFactory {
 
-	public void addCars(List<String> carModels) {       
+	public void addCars() {
+        
+        List<String> carBrands = new List<String>{'BMW', 'Mercedes-Benz', 'Audi', 'Toyota', 'Honda'};
+
         List<Vehicle__c> vehicles = new List<Vehicle__c>();
 
         for (String name : carModels) {
@@ -12,4 +15,8 @@ public class CarFactory {
        
 		insert vehicles;
    }
+   public void deleteCars(){
+       delete [Select Id from Vheicle__c];
+   }
+
 }
