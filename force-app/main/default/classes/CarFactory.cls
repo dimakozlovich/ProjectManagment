@@ -1,8 +1,10 @@
 public class CarFactory {
 
+    private static final List<String> CAR_MODELS = new List<String> {'BMW', 'Mercedes-Benz', 'Audi', 'Toyota', 'Honda','Tesla Model Plaid','Rivian R1T'};
+
 	public void addCars() { 
         
-        List<String> carModels = new List<String>{'BMW', 'Mercedes-Benz', 'Audi', 'Toyota', 'Honda','Tesla Model Plaid','Rivian R1T'};
+        List<String> carModels = CAR_MODELS;
 
         List<Vehicle__c> vehicles = new List<Vehicle__c>();
 
