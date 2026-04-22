@@ -1,22 +1,18 @@
 public class CarFactory {
 
-	public void addCars() {
-        
-        List<String> carBrands = new List<String>{'BMW', 'Mercedes-Benz', 'Audi', 'Toyota', 'Honda'};
+    private static final List<String> CAR_MODELS = new List<String> {'BMW', 'Mercedes-Benz', 'Audi', 'Toyota', 'Honda','Tesla Model Plaid','Rivian R1T'};
 
+	public void addCars() { 
         List<Vehicle__c> vehicles = new List<Vehicle__c>();
 
-        for (String name : carModels) {
+        for (String name : CAR_MODELS) {
             Vehicle__c vehicle = new Vehicle__c();
             vehicle.Name = name;
-            vehicle.Cost__c = Math.random();
+            vehicle.Cost__c = Integer.valueOf(Math.random()*10000);
             vehicles.add(vehicle);
         }
        
 		insert vehicles;
-   }
-   public void deleteCars(){
-       delete [Select Id from Vheicle__c];
    }
 
 }
