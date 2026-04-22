@@ -8,7 +8,7 @@ public class CarFactory {
         for (String name : CAR_MODELS) {
             Vehicle__c vehicle = new Vehicle__c();
             vehicle.Name = name;
-            vehicle.Cost__c = Math.random();
+            vehicle.Cost__c = Integer.valueOf(Math.random()*10000);
             vehicles.add(vehicle);
         }
        
