@@ -22,4 +22,15 @@ public with sharing class TimeLogManager {
         }
         return groupedLogs;
     }
+
+    public void voidprocessRecords(List<sObject> records){
+        for(sObject record : records){
+            if(record instanceof Project__c){
+                System.Debug((Project__c)record.Name);
+            }
+            else if(record instanceof Time__Log__c){
+                System.Debug((Time__Log__c)record.Name);
+            }
+        }
+    }
 }
