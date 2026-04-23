@@ -26,10 +26,10 @@ public with sharing class TimeLogManager {
     public void voidprocessRecords(List<sObject> records){
         for(sObject record : records){
             if(record instanceof Project__c){
-                System.Debug((Project__c)record.Name);
+                System.Debug(((Project__c)record).Name);
             }
-            else if(record instanceof Time__Log__c){
-                System.Debug((Time__Log__c)record.Name);
+            else if(record instanceof Time_Log__c){
+                System.Debug(((Time_Log__c)record).Name);
             }
         }
     }
