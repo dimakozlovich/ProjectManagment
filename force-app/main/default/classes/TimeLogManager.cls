@@ -7,7 +7,7 @@ public with sharing class TimeLogManager {
         for(Time_Log__c log : logs){
 
 
-            Id projectId = log.Project_Assignment__c;
+            Id projectId = log.Project_Assignment__r.Project__c;
 
             if(groupedLogs.containsKey(projectId))
             {
