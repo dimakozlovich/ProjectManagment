@@ -46,5 +46,7 @@ public class ProjectSummaryTest {
     ProjectSummary projectSummary = new ProjectSummary(project[0]);
     
     System.assertEquals('Project 1', projectSummary.projectName);
+    System.assertEquals(13, projectSummary.totalHours);
+    System.assertEquals(true, projectSummary.isOverBudget);
   }
 }
