@@ -16,11 +16,9 @@ public with sharing class TimeTrackerUtil {
     
     Integer minutes = Integer.valueOf(hours * 60);
     Integer wholeHour = Integer.valueOf(minutes / 60);
+    Integer remainingMinutes = Math.mod(minutes, 60);
     
-    return String.valueOf(minutes / 60) +
-      ',' +
-      String.valueOf(minutes - wholeHour * 60) +
-      'm';
+    return String.valueOf(wholeHour) +','+ String.valueOf(remainingMinutes)+'m';
   }
   
   private static void validateHours(Decimal hours) {
