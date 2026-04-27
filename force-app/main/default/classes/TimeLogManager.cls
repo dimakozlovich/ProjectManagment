@@ -1,10 +1,16 @@
 public with sharing class TimeLogManager {
   public Map<Id, List<Time_Log__c>> groupByProject(List<Time_Log__c> logs) {
     Map<Id, List<Time_log__c>> groupedLogs = new Map<Id, List<Time_log__c>>();
-
+    
     for (Time_Log__c log : logs) {
+      if (projectId == null) {
+        throw new IllegalArgumentException(
+          'Exception: field Project_Assignment__r is not loaded'
+          );
+      }
+      
       Id projectId = log.Project_Assignment__r.Project__c;
-
+      
       if (groupedLogs.containsKey(projectId)) {
         groupedLogs.get(projectId).add(log);
       } else {
@@ -15,7 +21,7 @@ public with sharing class TimeLogManager {
     }
     return groupedLogs;
   }
-
+  
   public void voidprocessRecords(List<sObject> records) {
     for (sObject record : records) {
       if (record instanceof Project__c) {
