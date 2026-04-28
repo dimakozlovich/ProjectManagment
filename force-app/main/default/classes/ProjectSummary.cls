@@ -5,8 +5,8 @@ public with sharing class ProjectSummary {
   
   public ProjectSummary(Project__c project) {
     
-    if(project == null){
-      throw new IllegalArgumentException('Project__c cannot be null');
+    if(project == null || String.isBlank(project.Name)){
+      throw new IllegalArgumentException('Project or his name cannot be null');
     }
     this.projectName = project.Name;
     this.totalHours = project.Total_Logged_Hours__c != null ? project.Total_Logged_Hours__c : 0;
