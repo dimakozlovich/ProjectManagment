@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Log_should_be_into_time_frames</fullName>
     <active>true</active>
@@ -11,5 +11,5 @@
 )</errorConditionFormula>
     <errorDisplayField>Date__c</errorDisplayField>
     <errorMessage
-  >The Log Date must fall within your Project Assignment start and end dates</errorMessage>
+    >The Log Date must fall within your Project Assignment start and end dates</errorMessage>
 </ValidationRule>

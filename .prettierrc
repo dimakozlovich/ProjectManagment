@@ -1,14 +1,37 @@
 {
-  "plugins": ["prettier-plugin-apex"],
-  "trailingComma": "none",
-  "overrides": [
-    {
-      "files": "**/lwc/**/*.html",
-      "options": { "parser": "lwc" }
-    },
-    {
-      "files": "*.{cmp,page,component}",
-      "options": { "parser": "html" }
-    }
-  ]
+    "trailingComma": "none",
+    "printWidth": 100,
+    "xmlSelfClosingSpace": false,
+    "tabWidth": 4,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": true,
+    "bracketSpacing": true,
+    "plugins": ["@prettier/plugin-xml", "prettier-plugin-apex"],
+    "overrides": [
+        {
+            "files": "**/*.{xml,layout-meta.xml,profile-meta.xml,permissionset-meta.xml,cls-meta.xml,trigger-meta.xml,app-meta.xml}",
+            "options": {
+                "parser": "xml"
+            }
+        },
+        {
+            "files": "**/*.cls",
+            "options": {
+                "parser": "apex"
+            }
+        },
+        {
+            "files": "**/*.trigger",
+            "options": {
+                "parser": "apex"
+            }
+        },
+        {
+            "files": "**/*.html",
+            "options": {
+                "parser": "lwc"
+            }
+        }
+    ]
 }
