@@ -2,7 +2,6 @@
 <ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Must_be_in_progress</fullName>
     <active>true</active>
-    <errorConditionFormula
-    >NOT(ISPICKVAL(Project_Assignment__r.Project__r.Status__c, &apos;In Progress&apos;))</errorConditionFormula>
+    <errorConditionFormula>NOT(ISPICKVAL(Project_Assignment__r.Project__r.Status__c, &apos;In Progress&apos;))</errorConditionFormula>
     <errorMessage>Project must have &apos;In Progress&apos; status</errorMessage>
 </ValidationRule>

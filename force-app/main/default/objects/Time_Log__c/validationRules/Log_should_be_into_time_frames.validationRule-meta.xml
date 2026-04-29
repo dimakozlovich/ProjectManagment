@@ -10,6 +10,5 @@
     )
 )</errorConditionFormula>
     <errorDisplayField>Date__c</errorDisplayField>
-    <errorMessage
-    >The Log Date must fall within your Project Assignment start and end dates</errorMessage>
+    <errorMessage>The Log Date must fall within your Project Assignment start and end dates</errorMessage>
 </ValidationRule>
