@@ -23,7 +23,7 @@ public with sharing class TimeTrackerUtil {
     }
     
     private static void validateHours(Decimal hours) {
-        if (hours > MAX_HOURS_PER_DAY || hours == 0 || hours < 0 || hours == null) {
+        if (hours == null || hours > MAX_HOURS_PER_DAY || hours == 0 || hours < 0) {
             throw new IllegalArgumentException('Invalid hours value');
         }
     }
