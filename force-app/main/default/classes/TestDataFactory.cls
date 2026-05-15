@@ -27,13 +27,15 @@ public class TestDataFactory {
         List<Time_Log__c> logs = new List<Time_Log__c>();
 
         if (!assignments.isEmpty()) {
-            for (Integer i = 0; i < quantity; i++) {
+            for (Integer i = 1; i < quantity; i++) {
                 Integer assignmentIndex = Math.mod(i, assignments.size());
                 logs.add(new Time_Log__c(
                     Name = 'logname____________' + i,
                     Project_Assignment__c = assignments.get(assignmentIndex).Id,
-                    Duration__c = Math.mod(i, 12),
-                    Date__c = Date.today()
+                    Duration__c = Math.mod(i, 12) + 1,
+                    Status__c = 'Submitted',
+                    Date__c = Date.today(),
+                    Description__c = Math.mod(i, 2) == 0 ? 'log with correct description size' : 'incorrect description'
                 ));
             }
         }
