@@ -1,8 +1,12 @@
-public class LogProcessorImpl {
+public class LogProcessorImpl implements LogProcessorInterface {
     
-    public List<BaseEntryType> entries;
+    private List<BaseEntryType> entries;
     
     public LogProcessorImpl(List<BaseEntryType> listEntries) {
+        if (listEntries == null) {
+            throw new IllegalArgumentException('LogProcessor cannot be initialized with a null list.');
+        }
+        
         listEntries.sort();
         this.entries = listEntries;
     }
@@ -11,11 +15,13 @@ public class LogProcessorImpl {
         Decimal totalHours = 0.0;
         
         for (BaseEntryType entry : this.entries) {
-            if (entry.logRecord != null && entry.logRecord.Duration__c != null) {
-                totalHours += entry.logRecord.Duration__c;
+            if (entry.calculateTotalCost() != null) {
+                totalHours += entry.calculateTotalCost();
             }
         }
         
         System.Debug(totalHours);
     }
+    public void processData(){}
+    public void syncWithDatabase(){}
 }
