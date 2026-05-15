@@ -3,11 +3,11 @@ public class InternalEntry extends BaseEntryType {
         super(logRecord, hourlyRate);
     }
     
-    protected override String getEntryCategory() {
+    public override String getEntryCategory() {
         return 'Non-Billable';
     }
     
-    protected override Decimal calculateTotalCost() {
+    public override Decimal calculateTotalCost() {
         return 0;
     }
 }

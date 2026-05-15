@@ -5,11 +5,11 @@ public class ClientEntry extends BaseEntryType {
         super(logRecord, hourlyRate);
     }
     
-    protected override String getEntryCategory() {
+    public override String getEntryCategory() {
         return 'Billable';
     }
     
-    protected override Decimal calculateTotalCost() {
+    public override Decimal calculateTotalCost() {
         return super.calculateTotalCost() * SERVICE_FEE_MULTIPLIER;
     }
 }
