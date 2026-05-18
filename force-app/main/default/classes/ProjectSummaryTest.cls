@@ -1,5 +1,6 @@
-@isTest
+@IsTest
 public class ProjectSummaryTest {
+   
     @TestSetup
     static void setupTestData() {
         Project__c project = new Project__c(Name = 'Project 1', Status__c = 'In Progress');
@@ -37,7 +38,7 @@ public class ProjectSummaryTest {
 
         insert timeLogs;
     }
-    @isTest
+    @IsTest
     static void projectSummaryConstructorTest() {
         List<Project__c> project = [
             SELECT Id, Name, Total_Logged_Hours__c
@@ -51,7 +52,7 @@ public class ProjectSummaryTest {
         System.assertEquals(true, projectSummary.isOverBudget);
     }
 
-    @isTest
+    @IsTest
     static void projectSummaryConstructorNullTest() {
         try {
             ProjectSummary projectSummary = new ProjectSummary(null);
@@ -61,7 +62,7 @@ public class ProjectSummaryTest {
         }
     }
 
-    @isTest
+    @IsTest
     static void projectSummaryEmptyProjectTest() {
         Project__c project = new Project__c();
         try {

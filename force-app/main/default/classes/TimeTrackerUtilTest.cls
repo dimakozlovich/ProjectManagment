@@ -1,6 +1,7 @@
-@isTest
+@IsTest
 public class TimeTrackerUtilTest {
-    @isTest
+    
+    @IsTest
     public static void isOvertimeTest() {
         System.assert(TimeTrackerUtil.isOvertime(14));
         System.assert(TimeTrackerUtil.isOvertime(12.1));
@@ -8,7 +9,7 @@ public class TimeTrackerUtilTest {
         System.assertEquals(false, TimeTrackerUtil.isOvertime(7.6));
     }
 
-    @isTest
+    @IsTest
     public static void formatDurationTest() {
         String strTime1 = TimeTrackerUtil.formatDuration(1.5);
         System.assertEquals('1,30m', strTime1);
