@@ -1,5 +1,4 @@
 public class LogProcessorImpl implements LogProcessorInterface {
-    
     private List<BaseEntryType> entries;
     
     public LogProcessorImpl(List<BaseEntryType> listEntries) {
@@ -22,16 +21,23 @@ public class LogProcessorImpl implements LogProcessorInterface {
         
         System.Debug(totalHours);
     }
+    
     public List<Time_Log__c> processData(List<BaseEntryType> records, String operationType) {
-        
         List<Time_Log__c> processedLogs = new List<Time_Log__c>();
-        for(BaseEntryType record : records) {
+        
+        for (BaseEntryType record : records) {
             Time_Log__c log = record.getRecord();
-            if (log.Id == null || log.Description__c == null || log.Duration__c == null || log.Date__c == null) {
+            
+            if ((log.Id == null ?? operationType != 'INSERT')  
+                || log.Description__c == null 
+                || log.Duration__c == null 
+                || log.Date__c == null) {
                 throw new IllegalArgumentException('Cannot process Time Log. Missing required fields (Id, Description, Duration, or Date) for record: ' + log);
             }
+            
             processedLogs.add(log);
         }
+        
         return processedLogs;
     }
     
