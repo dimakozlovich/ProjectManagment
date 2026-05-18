@@ -5,8 +5,8 @@ public class TimeLogAuditorBatch implements Database.Batchable<sObject>, Databas
     
     public Database.QueryLocator start(Database.BatchableContext bc) {
         String query = 'SELECT Id, Description__c, Duration__c, Status__c ' +
-            'FROM Time_Log__c ' +
-            'WHERE Status__c = \'Submitted\' AND Date__c = THIS_MONTH';
+                       'FROM Time_Log__c ' +
+                       'WHERE Status__c = \'Submitted\' AND Date__c = THIS_MONTH';
         
         return Database.getQueryLocator(query);
     }
