@@ -1,6 +1,7 @@
 @isTest
 public class TimeLogManagerTest {
-    @TestSetup
+    
+    @testSetup
     static void setupTestData() {
         List<Project__c> projects = new List<Project__c>();
         projects.add(new Project__c(Name = 'Project 1', Status__c = 'In Progress'));
