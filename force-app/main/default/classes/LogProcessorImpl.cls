@@ -28,7 +28,7 @@ public class LogProcessorImpl implements LogProcessorInterface {
         for (BaseEntryType record : records) {
             Time_Log__c log = record.getRecord();
             
-            if ((log.Id == null ?? operationType != 'INSERT')  
+            if ((log.Id == null && operationType != 'INSERT')  
                 || log.Description__c == null 
                 || log.Duration__c == null 
                 || log.Date__c == null) {
