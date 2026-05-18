@@ -34,4 +34,7 @@ public abstract class BaseEntryType implements Comparable {
         
         return -1;
     }
+    public Time_Log__c getRecord() {
+        return this.logRecord;
+    }
 }
