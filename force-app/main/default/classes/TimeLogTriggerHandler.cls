@@ -1,4 +1,5 @@
 public class TimeLogTriggerHandler {
+    
     public static boolean isFirstRun = true;
 
     public void avoidLegacyProjects(List<Time_Log__c> newLogs) {

@@ -1,4 +1,4 @@
-@isTest
+@IsTest
 public class TestDataFactory {
 
     public static void createLogsRecords(Integer quantity) {

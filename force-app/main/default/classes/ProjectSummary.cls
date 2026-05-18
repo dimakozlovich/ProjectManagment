@@ -1,4 +1,5 @@
 public with sharing class ProjectSummary {
+    
     public String projectName { get; private set; }
     public Decimal totalHours { get; private set; }
     public Boolean isOverBudget { get; private set; }

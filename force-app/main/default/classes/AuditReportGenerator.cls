@@ -1,4 +1,5 @@
 public class AuditReportGenerator implements Queueable {
+    
     private Integer totalRejectedLogs;
     private Decimal totalRejectedHours;
     

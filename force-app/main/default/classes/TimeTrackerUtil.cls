@@ -1,4 +1,5 @@
 public with sharing class TimeTrackerUtil {
+    
     private static final Integer MAX_HOURS_PER_DAY = 24;
     private static final Integer DEFAULT_WORK_DAY = 8;
     

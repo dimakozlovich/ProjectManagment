@@ -1,4 +1,5 @@
 public class InternalEntry extends BaseEntryType {
+    
     public InternalEntry(Time_Log__c logRecord, Decimal hourlyRate) {
         super(logRecord, hourlyRate);
     }

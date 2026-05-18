@@ -1,4 +1,5 @@
 public class TimeLogManager {
+    
     public Map<Id, List<Time_Log__c>> groupByProject(List<Time_Log__c> logs) {
         Map<Id, List<Time_Log__c>> groupedLogs = new Map<Id, List<Time_Log__c>>();
         

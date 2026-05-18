@@ -1,4 +1,5 @@
 public class LogProcessorImpl implements LogProcessorInterface {
+    
     private List<BaseEntryType> entries;
     
     public LogProcessorImpl(List<BaseEntryType> listEntries) {

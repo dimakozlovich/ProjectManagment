@@ -1,6 +1,6 @@
 public abstract class BaseEntryType implements Comparable {
-    protected Time_Log__c logRecord;
     
+    protected Time_Log__c logRecord;
     protected Decimal hourlyRate;
     
     public BaseEntryType(Time_Log__c logRecord, Decimal hourlyRate) {

@@ -1,7 +1,7 @@
-@isTest
+@IsTest
 public class TimeLogManagerTest {
     
-    @testSetup
+    @TestSetup
     static void setupTestData() {
         List<Project__c> projects = new List<Project__c>();
         projects.add(new Project__c(Name = 'Project 1', Status__c = 'In Progress'));
@@ -41,7 +41,7 @@ public class TimeLogManagerTest {
         insert timeLogs;
     }
 
-    @isTest
+    @IsTest
     static void groupByProject() {
         List<Time_Log__c> logs = [
             SELECT Id, Duration__c, Project_Assignment__r.Project__c
