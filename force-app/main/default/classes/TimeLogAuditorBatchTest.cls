@@ -1,12 +1,12 @@
-@isTest
+@IsTest
 public class TimeLogAuditorBatchTest {
 
-    @testSetup
+    @TestSetup
     static void setup() {
         TestDataFactory.createLogsRecords(201);
     }
     
-    @isTest
+    @IsTest
     static void testBatchExecution() {
         Test.startTest();
         Database.executeBatch(new TimeLogAuditorBatch());
