@@ -10,6 +10,7 @@ public class TimeLogAuditorBatch implements Database.Batchable<sObject>, Databas
         
         return Database.getQueryLocator(query);
     }
+    
     public void execute(Database.BatchableContext bc, List<Time_Log__c> scope) {
         List<Time_Log__c> logsToUpdate = new List<Time_Log__c>();
         
