@@ -1,6 +1,7 @@
 @isTest
 public class TimeLogAuditorBatchTest {
-    @TestSetup
+
+    @testSetup
     static void setup() {
         TestDataFactory.createLogsRecords(201);
     }

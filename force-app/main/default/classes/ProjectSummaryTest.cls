@@ -1,6 +1,7 @@
 @isTest
 public class ProjectSummaryTest {
-    @TestSetup
+   
+    @testSetup
     static void setupTestData() {
         Project__c project = new Project__c(Name = 'Project 1', Status__c = 'In Progress');
         insert project;
