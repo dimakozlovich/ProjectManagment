@@ -1,4 +1,4 @@
-@isTest
+@IsTest
 public class TestDataFactory {
 
     public static void createLogsRecords(Integer quantity) {
@@ -6,11 +6,8 @@ public class TestDataFactory {
         Set<String> statuses = new Set<String>{'Not Started', 'In Progress', 'Completed'};
 
         for (String status : statuses) {
-            String projectName1 = status + ' 1';
-            String projectName2 = status + ' 2';
-
-            projects.add(new Project__c(Name = projectName1, Status__c = status));
-            projects.add(new Project__c(Name = projectName2, Status__c = status));
+            projects.add(new Project__c(Name = status + ' 1', Status__c = status));
+            projects.add(new Project__c(Name = status + ' 2', Status__c = status));
         }
         insert projects;
 
