@@ -1,4 +1,4 @@
 public interface LogProcessorInterface {
-    List<Time_Log__c> processData(List<BaseEntryType> records, String operationType);
-    void syncWithDatabase(List<BaseEntryType> records, String operationType);
+    List<Time_Log__c> processData(String operationType);
+    void syncWithDatabase(String operationType);
 }

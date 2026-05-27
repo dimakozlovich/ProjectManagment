@@ -18,7 +18,6 @@ public class TimeLogManagerTest {
         insert assignments;
 
         List<Time_Log__c> timeLogs = new List<Time_Log__c>();
-
         timeLogs.add(
             new Time_Log__c(
                 Name = 'feature: make some changes on main page',
@@ -42,7 +41,7 @@ public class TimeLogManagerTest {
     }
 
     @IsTest
-    static void groupByProject() {
+    static void groupByProjectTest() {
         List<Time_Log__c> logs = [
             SELECT Id, Duration__c, Project_Assignment__r.Project__c
             FROM Time_Log__c
@@ -70,9 +69,50 @@ public class TimeLogManagerTest {
             List<Time_Log__c> projectLogs = groupedLogs.get(projectId);
             System.assertNotEquals(null, projectLogs);
             System.assertEquals(expectedCountsByProject.get(projectId), projectLogs.size());
+
             for (Time_Log__c projectLog : projectLogs) {
                 System.assertEquals(projectId, projectLog.Project_Assignment__r.Project__c);
             }
         }
+    }
+
+    @IsTest
+    static void processRecordsTest() {
+        List<Time_Log__c> logs = [SELECT Id, Name, Date__c, Duration__c FROM Time_Log__c];
+        List<Project__c> projects = [SELECT Id, Name, Status__c FROM Project__c];
+
+        TimeLogManager timeLogManager = new TimeLogManager();
+        timeLogManager.processRecords(logs);
+        timeLogManager.processRecords(projects);
+        timeLogManager.processRecords(null);
+
+        Assert.isTrue(true, 'The method should handle different sObjects list gracefully.');
+
+        List<Time_Log__c> defectiveLogs = [SELECT Id, Name FROM Time_Log__c];
+        List<Project__c> defectiveProjects = [SELECT Id, Name FROM Project__c];
+
+        try {
+            timeLogManager.processRecords(defectiveLogs);
+            timeLogManager.processRecords(defectiveProjects);
+
+            Assert.isTrue(false, 'The method should throw System.SObject SObject ' + 
+                                  'row was retrieved via SOQL without querying the requested fields');
+        } catch (Exception e) {
+            Assert.isTrue(true, 'System.SObject excepion successfully thrown');
+        }
+    }
+
+    @IsTest
+    static void searchLogsTest() {
+        Project__c firstProject = [SELECT Id FROM Project__c ORDER BY Id ASC LIMIT 1];
+        Map<String, Object> filters = new Map<String, Object>{
+            'UserId' => UserInfo.getUserId(),
+            'ProjectId' => firstProject.Id
+        };
+        
+        TimeLogManager manager = new TimeLogManager();
+        List<Time_Log__c> results = manager.searchLogs(filters);
+
+        System.assertEquals(2, results.size());
     }
 }

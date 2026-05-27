@@ -22,6 +22,11 @@ public class TimeLogManager {
     }
     
     public void processRecords(List<sObject> records) {
+        
+        if (records == null) {
+            return;
+        }
+
         for (sObject record : records) {
             if (record instanceof Project__c) {
                 Project__c project = (Project__c) record;

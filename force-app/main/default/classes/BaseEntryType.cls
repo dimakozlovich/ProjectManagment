@@ -23,13 +23,11 @@ public abstract class BaseEntryType implements Comparable {
         
         if (this.logRecord.Date__c > compareLogRecord.logRecord.Date__c
             || (this.logRecord.Date__c == compareLogRecord.logRecord.Date__c
-            && this.logRecord.Duration__c > compareLogRecord.logRecord.Duration__c)
-        ) {
-            return 1;
+                && this.logRecord.Duration__c > compareLogRecord.logRecord.Duration__c)) {
+                    return 1;
         } else if (this.logRecord.Duration__c == compareLogRecord.logRecord.Duration__c
-        && this.logRecord.Date__c == compareLogRecord.logRecord.Date__c
-        ) {
-            return 0;
+                   && this.logRecord.Date__c == compareLogRecord.logRecord.Date__c) {
+                    return 0;
         }
         
         return -1;
