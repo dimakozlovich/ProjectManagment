@@ -76,7 +76,6 @@ public class TimeLogManagerTest {
         }
     }
 
-
     @IsTest
     static void processRecordsTest() {
         List<Time_Log__c> logs = [SELECT Id, Name, Date__c, Duration__c FROM Time_Log__c];
