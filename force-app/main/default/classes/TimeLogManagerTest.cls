@@ -18,7 +18,6 @@ public class TimeLogManagerTest {
         insert assignments;
 
         List<Time_Log__c> timeLogs = new List<Time_Log__c>();
-
         timeLogs.add(
             new Time_Log__c(
                 Name = 'feature: make some changes on main page',
@@ -70,6 +69,7 @@ public class TimeLogManagerTest {
             List<Time_Log__c> projectLogs = groupedLogs.get(projectId);
             System.assertNotEquals(null, projectLogs);
             System.assertEquals(expectedCountsByProject.get(projectId), projectLogs.size());
+
             for (Time_Log__c projectLog : projectLogs) {
                 System.assertEquals(projectId, projectLog.Project_Assignment__r.Project__c);
             }
@@ -106,14 +106,14 @@ public class TimeLogManagerTest {
     @IsTest
     static void searchLogsTest() {
         Project__c firstProject = [SELECT Id FROM Project__c ORDER BY Id ASC LIMIT 1];
-    
         Map<String, Object> filters = new Map<String, Object>{
             'UserId' => UserInfo.getUserId(),
             'ProjectId' => firstProject.Id
         };
-    
+        
         TimeLogManager manager = new TimeLogManager();
         List<Time_Log__c> results = manager.searchLogs(filters);
+
         System.assertEquals(2, results.size());
     }
 }
