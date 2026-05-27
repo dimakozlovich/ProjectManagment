@@ -1,19 +1,19 @@
 
-@isTest
+@IsTest
 public class InternalEntryTest {
     
-   @testSetup
+   @TestSetup
     static void makeData() {
         TestDataFactory.createLogsRecords(2);
     }
 
-    @isTest
+    @IsTest
     static void getEntryCategoryTest() {
          InternalEntry internalEntry = getInternalEntryInstance();
          Assert.areEqual('Non-Billable', internalEntry.getEntryCategory());
     }
 
-    @isTest
+    @IsTest
     static void calculateTotalCostTest() {
          InternalEntry internalEntry = getInternalEntryInstance();
          Assert.areEqual(0, internalEntry.calculateTotalCost());

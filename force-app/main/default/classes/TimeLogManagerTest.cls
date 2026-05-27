@@ -77,7 +77,7 @@ public class TimeLogManagerTest {
     }
 
 
-    @isTest
+    @IsTest
     static void processRecordsTest() {
         List<Time_Log__c> logs = [SELECT Id, Name, Date__c, Duration__c FROM Time_Log__c];
         List<Project__c> projects = [SELECT Id, Name, Status__c FROM Project__c];
@@ -103,7 +103,7 @@ public class TimeLogManagerTest {
         }
     }
 
-    @isTest
+    @IsTest
     static void searchLogsTest() {
         Project__c firstProject = [SELECT Id FROM Project__c ORDER BY Id ASC LIMIT 1];
     

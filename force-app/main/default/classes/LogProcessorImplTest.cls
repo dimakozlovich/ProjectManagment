@@ -1,12 +1,12 @@
-@isTest
+@IsTest
 public class LogProcessorImplTest {
     
-    @testSetup
+    @TestSetup
     static void makeData(){
         TestDataFactory.createLogsRecords(10);
     }
     
-    @isTest
+    @IsTest
     static void syncWithDatabaseUpdateTest() {
         List<Time_Log__c> logs = [SELECT Id, Date__c, Duration__c, Description__c FROM Time_Log__c];
         
@@ -25,7 +25,7 @@ public class LogProcessorImplTest {
         Assert.areEqual(9, UpdatedLogs.size(), 'exptected 9 logs but actual is' + UpdatedLogs.size());
     }
     
-    @isTest
+    @IsTest
     static void syncWithDatabaseDeleteTest() {
         List<Time_Log__c> logs = [SELECT Id, Date__c, Duration__c, Description__c FROM Time_Log__c];
         
@@ -42,7 +42,7 @@ public class LogProcessorImplTest {
         Assert.areEqual(0, UpdatedLogs.size(), 'exptected 0 logs but actual is' + UpdatedLogs.size());
     }
 
-    @isTest
+    @IsTest
     static void debugTotalHoursLogsTest() {
         List<Time_Log__c> logs = [SELECT Id, Date__c, Duration__c, Description__c FROM Time_Log__c];
         
